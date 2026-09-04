@@ -1,0 +1,15 @@
+import React, { useEffect, useState } from 'react';
+import { useInView } from '../ui/Motion';
+const stages = [
+  ['01', 'Survey vector', 'X = [x₁, x₂, …, x₁₅]', 'Compiles the configured 15 input values into the model feature order.'],
+  ['02', 'StandardScaler', 'zⱼ = (xⱼ − μⱼ) / σⱼ', 'Applies frozen training means and standard deviations before scoring.'],
+  ['03', 'Logit', 'z = β₀ + Σ(βⱼ · zⱼ)', 'Calculates the regularized logistic regression score with the frozen coefficients.'],
+  ['04', 'Sigmoid', 'P(YES) = 1 / (1 + e⁻ᶻ)', 'Maps the logit score to a bounded model probability.'],
+  ['05', 'Decision threshold', 'θ = 0.50', 'Compares P(YES) with the production decision threshold to return YES or NO.'],
+];
+export default function AIPipelineExplainer() {
+  const [ref, visible] = useInView(); const [active, setActive] = useState(0); const [running, setRunning] = useState(false);
+  useEffect(() => { if (!visible) return undefined; const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; if (reduce) return undefined; const timer = setInterval(() => setActive((x) => x < 4 ? x + 1 : x), 480); return () => clearInterval(timer); }, [visible]);
+  const run = () => { if (running) return; setRunning(true); setActive(0); let current = 0; const timer = setInterval(() => { current += 1; setActive(current); if (current === 4) { clearInterval(timer); setRunning(false); } }, 420); };
+  return <section id="ai-pipeline" ref={ref} className="section-space bg-ink-950 text-white"><div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div className="max-w-3xl"><p className="eyebrow text-clinical-300">Interactive ML pipeline</p><h2 className="section-title text-white">Trace each transformation.</h2><p className="section-copy text-pearl-300">The visualization follows the fixed production process. It explains a request; it does not alter the model.</p></div><button type="button" onClick={run} className="pipeline-run" disabled={running}>{running ? 'Animating model path…' : 'Run pipeline visualization'}</button></div><div className="pipeline-map mt-12">{stages.map((stage, index) => <React.Fragment key={stage[0]}><button type="button" onClick={() => setActive(index)} className={`pipeline-stage ${active === index ? 'is-active' : ''}`} aria-pressed={active === index}><span className="font-mono text-caption text-clinical-300">{stage[0]}</span><span className="mt-5 block text-lg font-bold">{stage[1]}</span><code className="mt-4 block text-caption text-pearl-300">{stage[2]}</code></button>{index < 4 && <span className={`pipeline-connector ${visible && index < active ? 'is-active' : ''}`} />}</React.Fragment>)}</div><div className="mt-8 border-l-2 border-clinical-400 bg-white/5 p-6"><span className="font-mono text-caption text-clinical-300">STAGE {stages[active][0]} — VISUALIZATION</span><p className="mt-2 max-w-3xl text-body-lg text-pearl-200">{stages[active][3]}</p></div></div></section>;
+}

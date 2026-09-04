@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lung Cancer Predictor — Academic ML System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header & Academic Disclaimer Banner -->
+    <header>
+      <span class="badge-academic">Academic Machine Learning Project</span>
+      <h1>Lung Cancer Predictor</h1>
+      <p class="subtitle">
+        Academic Machine Learning Prediction System — Not a Medical Diagnostic Tool
+      </p>
+    </header>
+
+    <!-- Error Alert Box -->
+    <div id="error-alert" class="alert alert-danger" role="alert"></div>
+
+    <!-- Main Prediction Form -->
+    <main class="main-card">
+      <form id="prediction-form" novalidate>
+        <!-- Section 1: Demographics -->
+        <div class="form-section">
+          <h2 class="section-title">1. Patient Demographics</h2>
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" name="GENDER" required>
+                <option value="M" selected>Male (M)</option>
+                <option value="F">Female (F)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="age">Age (Years)</label>
+              <input
+                type="number"
+                id="age"
+                name="AGE"
+                min="18"
+                max="120"
+                value="60"
+                placeholder="18 - 120"
+                required
+              />
+              <span class="field-desc">Valid age range: 18 to 120 years</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Behavioral Risk Factors -->
+        <div class="form-section">
+          <h2 class="section-title">2. Behavioral Risk Factors</h2>
+          <div class="grid-3">
+            <div class="form-group">
+              <label>Smoking</label>
+              <div class="radio-group">
+                <label><input type="radio" name="SMOKING" value="2" checked /> Yes</label>
+                <label><input type="radio" name="SMOKING" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Alcohol Consuming</label>
+              <div class="radio-group">
+                <label><input type="radio" name="ALCOHOL_CONSUMING" value="2" checked /> Yes</label>
+                <label><input type="radio" name="ALCOHOL_CONSUMING" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Peer Pressure</label>
+              <div class="radio-group">
+                <label><input type="radio" name="PEER_PRESSURE" value="2" /> Yes</label>
+                <label><input type="radio" name="PEER_PRESSURE" value="1" checked /> No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Respiratory Symptoms -->
+        <div class="form-section">
+          <h2 class="section-title">3. Respiratory Symptoms</h2>
+          <div class="grid-3">
+            <div class="form-group">
+              <label>Coughing</label>
+              <div class="radio-group">
+                <label><input type="radio" name="COUGHING" value="2" checked /> Yes</label>
+                <label><input type="radio" name="COUGHING" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Shortness of Breath</label>
+              <div class="radio-group">
+                <label><input type="radio" name="SHORTNESS_OF_BREATH" value="2" checked /> Yes</label>
+                <label><input type="radio" name="SHORTNESS_OF_BREATH" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Wheezing</label>
+              <div class="radio-group">
+                <label><input type="radio" name="WHEEZING" value="2" checked /> Yes</label>
+                <label><input type="radio" name="WHEEZING" value="1" /> No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Upper Airway & Chest Symptoms -->
+        <div class="form-section">
+          <h2 class="section-title">4. Upper Airway & Chest Symptoms</h2>
+          <div class="grid-2">
+            <div class="form-group">
+              <label>Swallowing Difficulty</label>
+              <div class="radio-group">
+                <label><input type="radio" name="SWALLOWING_DIFFICULTY" value="2" /> Yes</label>
+                <label><input type="radio" name="SWALLOWING_DIFFICULTY" value="1" checked /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Chest Pain</label>
+              <div class="radio-group">
+                <label><input type="radio" name="CHEST_PAIN" value="2" checked /> Yes</label>
+                <label><input type="radio" name="CHEST_PAIN" value="1" /> No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: General & Systemic Indicators -->
+        <div class="form-section">
+          <h2 class="section-title">5. General & Clinical Indicators</h2>
+          <div class="grid-3">
+            <div class="form-group">
+              <label>Yellow Fingers (Tar Staining)</label>
+              <div class="radio-group">
+                <label><input type="radio" name="YELLOW_FINGERS" value="2" checked /> Yes</label>
+                <label><input type="radio" name="YELLOW_FINGERS" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Chronic Disease</label>
+              <div class="radio-group">
+                <label><input type="radio" name="CHRONIC_DISEASE" value="2" checked /> Yes</label>
+                <label><input type="radio" name="CHRONIC_DISEASE" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Fatigue / Malaise</label>
+              <div class="radio-group">
+                <label><input type="radio" name="FATIGUE" value="2" checked /> Yes</label>
+                <label><input type="radio" name="FATIGUE" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Allergies</label>
+              <div class="radio-group">
+                <label><input type="radio" name="ALLERGY" value="2" checked /> Yes</label>
+                <label><input type="radio" name="ALLERGY" value="1" /> No</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Anxiety</label>
+              <div class="radio-group">
+                <label><input type="radio" name="ANXIETY" value="2" checked /> Yes</label>
+                <label><input type="radio" name="ANXIETY" value="1" /> No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submission Row -->
+        <div class="button-row">
+          <button type="submit" id="submit-btn" class="btn btn-primary">
+            <span id="btn-spinner" class="spinner" style="display: none;"></span>
+            <span id="btn-text">Generate Prediction</span>
+          </button>
+          <button type="button" id="reset-btn" class="btn btn-secondary">
+            Reset Form
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Prediction Result Card -->
+    <section id="result-section" class="result-card" aria-live="polite">
+      <div class="result-header">
+        <div class="result-title-group">
+          <h3 id="result-title">Model Prediction Result</h3>
+          <p id="result-subtitle" class="field-desc">Classification output from frozen inference engine</p>
+        </div>
+        <span id="result-badge" class="result-tag">--</span>
+      </div>
+
+      <!-- Metrics Grid -->
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="metric-label">Model Classification</div>
+          <div id="metric-pred" class="metric-value">--</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Positive Risk (YES)</div>
+          <div id="metric-pos-prob" class="metric-value positive-color">--%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Low Risk (NO)</div>
+          <div id="metric-neg-prob" class="metric-value negative-color">--%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Decision Threshold</div>
+          <div id="metric-threshold" class="metric-value">50.0%</div>
+        </div>
+      </div>
+
+      <!-- Probability Bar -->
+      <div class="prob-bar-container">
+        <div class="prob-bar-labels">
+          <span>P(Positive Risk): <strong id="bar-label-pos">0%</strong></span>
+          <span>P(Low Risk): <strong id="bar-label-neg">0%</strong></span>
+        </div>
+        <div class="prob-bar">
+          <div id="prob-bar-pos" class="prob-fill-pos" style="width: 50%;"></div>
+          <div id="prob-bar-neg" class="prob-fill-neg" style="width: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Model Metadata -->
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+        <strong>Underlying Model:</strong> <span id="meta-model-name">Logistic Regression (Balanced)</span> |
+        <strong>Version:</strong> <span id="meta-model-ver">1.0.0</span>
+      </p>
+
+      <!-- Mandatory Academic Disclaimer -->
+      <div class="disclaimer-box">
+        <strong>Academic Disclaimer:</strong> This result is generated by an academic machine learning model and must not be used as a medical diagnosis or substitute for professional medical advice.
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Lung Cancer Predictor &bull; Final-Year Engineering ML Project &bull; Powered by FastAPI & Scikit-Learn</p>
+    </footer>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

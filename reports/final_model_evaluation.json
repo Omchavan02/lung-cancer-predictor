@@ -1,0 +1,88 @@
+{
+  "project": "Lung Cancer Predictor",
+  "phase": "Phase 5 - Model Finalization and Verification",
+  "dataset_integrity": {
+    "raw_file": "data/raw/Code3_LC.csv",
+    "sha256_unmodified": true,
+    "unique_records": 276,
+    "positive_cases": 238,
+    "negative_cases": 38,
+    "imbalance_ratio": "6.26:1"
+  },
+  "selected_final_model": {
+    "algorithm": "Logistic Regression (Balanced)",
+    "hyperparameters": {
+      "C": 0.1,
+      "solver": "lbfgs",
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "operating_threshold": 0.50,
+    "cross_validation_25_folds": {
+      "pr_auc": "0.943 ± 0.041 (standard deviation across repeated CV folds)",
+      "roc_auc": "0.873 ± 0.086 (standard deviation across repeated CV folds)",
+      "macro_f1": "0.765 ± 0.091 (standard deviation across repeated CV folds)",
+      "balanced_accuracy": "0.766 ± 0.092 (standard deviation across repeated CV folds)",
+      "minority_no_recall": "0.633 ± 0.180 (standard deviation across repeated CV folds)",
+      "accuracy": "0.877 ± 0.050 (standard deviation across repeated CV folds)"
+    },
+    "holdout_test_evaluation_n56": {
+      "accuracy": 0.9107,
+      "balanced_accuracy": 0.8438,
+      "macro_f1": 0.8354,
+      "minority_no_recall": 0.7500,
+      "minority_no_precision": 0.6667,
+      "minority_no_f1": 0.7059,
+      "majority_yes_recall": 0.9375,
+      "majority_yes_precision": 0.9574,
+      "majority_yes_f1": 0.9474,
+      "roc_auc": 0.8672,
+      "pr_auc": 0.9392,
+      "confusion_matrix": {
+        "true_negatives_no": 6,
+        "false_positives_yes": 2,
+        "false_negatives_no": 3,
+        "true_positives_yes": 45
+      }
+    }
+  },
+  "benchmark_model": {
+    "algorithm": "Extra Trees Classifier (Balanced)",
+    "hyperparameters": {
+      "n_estimators": 100,
+      "max_depth": 5,
+      "min_samples_leaf": 2,
+      "min_samples_split": 4,
+      "max_features": "sqrt",
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "operating_threshold": 0.50,
+    "cross_validation_25_folds": {
+      "pr_auc": "0.958 ± 0.033 (standard deviation across repeated CV folds)",
+      "roc_auc": "0.889 ± 0.078 (standard deviation across repeated CV folds)",
+      "macro_f1": "0.762 ± 0.089 (standard deviation across repeated CV folds)",
+      "balanced_accuracy": "0.754 ± 0.083 (standard deviation across repeated CV folds)",
+      "minority_no_recall": "0.573 ± 0.160 (standard deviation across repeated CV folds)"
+    },
+    "holdout_test_evaluation_n56": {
+      "accuracy": 0.9107,
+      "balanced_accuracy": 0.8021,
+      "macro_f1": 0.8095,
+      "minority_no_recall": 0.6250,
+      "minority_no_precision": 0.7143,
+      "minority_no_f1": 0.6667,
+      "majority_yes_recall": 0.9583,
+      "majority_yes_precision": 0.9388,
+      "majority_yes_f1": 0.9485,
+      "roc_auc": 0.8750,
+      "pr_auc": 0.9425,
+      "confusion_matrix": {
+        "true_negatives_no": 5,
+        "false_positives_yes": 3,
+        "false_negatives_no": 2,
+        "true_positives_yes": 46
+      }
+    }
+  }
+}

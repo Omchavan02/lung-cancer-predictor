@@ -1,0 +1,101 @@
+export const FEATURE_GROUPS = [
+  {
+    id: 'behavioral',
+    title: 'Behavioral & Environmental Factors',
+    icon: 'Activity',
+    description: 'Lifestyle and environmental exposure indicators',
+    features: [
+      { id: 'SMOKING', label: 'Tobacco Smoking Habit', desc: 'Current or regular history of smoking' },
+      { id: 'YELLOW_FINGERS', label: 'Yellow Fingers / Staining', desc: 'Visible nicotine or tar pigmentation' },
+      { id: 'ANXIETY', label: 'Anxiety History', desc: 'Frequent feelings of acute or persistent anxiety' },
+      { id: 'PEER_PRESSURE', label: 'Social / Peer Pressure Exposure', desc: 'Environmental or occupational social exposure' },
+      { id: 'ALCOHOL_CONSUMING', label: 'Alcohol Consumption', desc: 'Regular or elevated alcohol intake' },
+    ],
+  },
+  {
+    id: 'respiratory',
+    title: 'Respiratory Symptoms',
+    icon: 'Wind',
+    description: 'Primary pulmonary and breathing indicators',
+    features: [
+      { id: 'FATIGUE', label: 'Chronic Fatigue / Malaise', desc: 'Persistent exhaustion not relieved by rest' },
+      { id: 'WHEEZING', label: 'Wheezing Sound', desc: 'High-pitched whistling sound during breathing' },
+      { id: 'COUGHING', label: 'Persistent Cough', desc: 'Chronic continuous or recurring cough' },
+      { id: 'SHORTNESS_OF_BREATH', label: 'Shortness of Breath (Dyspnea)', desc: 'Labored breathing or sudden breathlessness' },
+    ],
+  },
+  {
+    id: 'upper_airway',
+    title: 'Upper Airway & Chest Symptoms',
+    icon: 'Stethoscope',
+    description: 'Chest discomfort and swallowing indicators',
+    features: [
+      { id: 'ALLERGY', label: 'Allergic Sensitivities', desc: 'History of respiratory or systemic allergies' },
+      { id: 'SWALLOWING_DIFFICULTY', label: 'Swallowing Difficulty (Dysphagia)', desc: 'Pain or sensation of obstruction when swallowing' },
+      { id: 'CHEST_PAIN', label: 'Chest Pain', desc: 'Discomfort, tightness, or aching in the thorax' },
+    ],
+  },
+  {
+    id: 'clinical',
+    title: 'Clinical Indicators',
+    icon: 'ShieldAlert',
+    description: 'Underlying pre-existing medical conditions',
+    features: [
+      { id: 'CHRONIC_DISEASE', label: 'Pre-existing Chronic Disease', desc: 'Long-term metabolic, cardiovascular, or lung condition' },
+    ],
+  },
+];
+
+export const INITIAL_FORM_STATE = {
+  GENDER: 'M',
+  AGE: 60,
+  SMOKING: 2,
+  YELLOW_FINGERS: 2,
+  ANXIETY: 2,
+  PEER_PRESSURE: 1,
+  CHRONIC_DISEASE: 2,
+  FATIGUE: 2,
+  ALLERGY: 2,
+  WHEEZING: 2,
+  ALCOHOL_CONSUMING: 2,
+  COUGHING: 2,
+  SHORTNESS_OF_BREATH: 2,
+  SWALLOWING_DIFFICULTY: 1,
+  CHEST_PAIN: 2,
+};
+
+export const POSITIVE_REFERENCE_PROFILE = {
+  GENDER: 'M',
+  AGE: 69,
+  SMOKING: 2,
+  YELLOW_FINGERS: 2,
+  ANXIETY: 2,
+  PEER_PRESSURE: 1,
+  CHRONIC_DISEASE: 2,
+  FATIGUE: 2,
+  ALLERGY: 2,
+  WHEEZING: 2,
+  ALCOHOL_CONSUMING: 2,
+  COUGHING: 2,
+  SHORTNESS_OF_BREATH: 2,
+  SWALLOWING_DIFFICULTY: 2,
+  CHEST_PAIN: 2,
+};
+
+export const NEGATIVE_REFERENCE_PROFILE = {
+  GENDER: 'F',
+  AGE: 25,
+  SMOKING: 1,
+  YELLOW_FINGERS: 1,
+  ANXIETY: 1,
+  PEER_PRESSURE: 1,
+  CHRONIC_DISEASE: 1,
+  FATIGUE: 1,
+  ALLERGY: 1,
+  WHEEZING: 1,
+  ALCOHOL_CONSUMING: 1,
+  COUGHING: 1,
+  SHORTNESS_OF_BREATH: 1,
+  SWALLOWING_DIFFICULTY: 1,
+  CHEST_PAIN: 1,
+};

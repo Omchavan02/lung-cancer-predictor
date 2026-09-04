@@ -1,0 +1,195 @@
+{
+  "model_name": "Logistic Regression (Balanced)",
+  "pipeline_file": "final_logistic_regression_pipeline.joblib",
+  "benchmark_file": "benchmark_extra_trees_pipeline.joblib",
+  "hyperparameters": {
+    "C": 0.1,
+    "solver": "lbfgs",
+    "class_weight": "balanced",
+    "random_state": 42,
+    "max_iter": 1000
+  },
+  "operating_threshold": 0.5,
+  "feature_names": [
+    "GENDER",
+    "AGE",
+    "SMOKING",
+    "YELLOW_FINGERS",
+    "ANXIETY",
+    "PEER_PRESSURE",
+    "CHRONIC_DISEASE",
+    "FATIGUE",
+    "ALLERGY",
+    "WHEEZING",
+    "ALCOHOL_CONSUMING",
+    "COUGHING",
+    "SHORTNESS_OF_BREATH",
+    "SWALLOWING_DIFFICULTY",
+    "CHEST_PAIN"
+  ],
+  "label_mapping": {
+    "0": "NO (No Lung Cancer)",
+    "1": "YES (Lung Cancer)"
+  },
+  "training_dataset_summary": {
+    "total_unique_records": 276,
+    "training_samples": 220,
+    "holdout_test_samples": 56,
+    "class_imbalance_ratio": 6.333333333333333
+  },
+  "holdout_evaluation_metrics": {
+    "accuracy": 0.9107,
+    "balanced_accuracy": 0.8438,
+    "macro_f1": 0.8354,
+    "majority_precision_yes": 0.9574,
+    "majority_recall_yes": 0.9375,
+    "majority_f1_yes": 0.9474,
+    "minority_precision_no": 0.6667,
+    "minority_recall_no": 0.75,
+    "minority_f1_no": 0.7059,
+    "roc_auc": 0.8672,
+    "pr_auc": 0.9392,
+    "confusion_matrix": {
+      "true_negatives_no": 6,
+      "false_positives_yes": 2,
+      "false_negatives_no": 3,
+      "true_positives_yes": 45
+    },
+    "operating_threshold": 0.5
+  },
+  "benchmark_evaluation_metrics": {
+    "accuracy": 0.9107,
+    "balanced_accuracy": 0.8021,
+    "macro_f1": 0.8095,
+    "majority_precision_yes": 0.9388,
+    "majority_recall_yes": 0.9583,
+    "majority_f1_yes": 0.9485,
+    "minority_precision_no": 0.7143,
+    "minority_recall_no": 0.625,
+    "minority_f1_no": 0.6667,
+    "roc_auc": 0.875,
+    "pr_auc": 0.9425,
+    "confusion_matrix": {
+      "true_negatives_no": 5,
+      "false_positives_yes": 3,
+      "false_negatives_no": 2,
+      "true_positives_yes": 46
+    },
+    "operating_threshold": 0.5
+  },
+  "cv_performance_summary": {
+    "pr_auc": "0.943 \u00b1 0.041 (standard deviation across repeated CV folds)",
+    "roc_auc": "0.873 \u00b1 0.086 (standard deviation across repeated CV folds)",
+    "macro_f1": "0.765 \u00b1 0.091 (standard deviation across repeated CV folds)",
+    "balanced_accuracy": "0.766 \u00b1 0.092 (standard deviation across repeated CV folds)",
+    "minority_no_recall": "0.633 \u00b1 0.180 (standard deviation across repeated CV folds)"
+  },
+  "feature_coefficients": [
+    {
+      "Feature": "ALLERGY",
+      "Standardized Coefficient (Log-Odds)": 0.5214,
+      "Odds Ratio [exp(beta)]": 1.6844,
+      "Feature Mean": 1.5591,
+      "Feature Std": 0.4965
+    },
+    {
+      "Feature": "ALCOHOL_CONSUMING",
+      "Standardized Coefficient (Log-Odds)": 0.4821,
+      "Odds Ratio [exp(beta)]": 1.6195,
+      "Feature Mean": 1.5727,
+      "Feature Std": 0.4947
+    },
+    {
+      "Feature": "SWALLOWING_DIFFICULTY",
+      "Standardized Coefficient (Log-Odds)": 0.4533,
+      "Odds Ratio [exp(beta)]": 1.5735,
+      "Feature Mean": 1.4591,
+      "Feature Std": 0.4983
+    },
+    {
+      "Feature": "WHEEZING",
+      "Standardized Coefficient (Log-Odds)": 0.4312,
+      "Odds Ratio [exp(beta)]": 1.5391,
+      "Feature Mean": 1.5455,
+      "Feature Std": 0.4979
+    },
+    {
+      "Feature": "COUGHING",
+      "Standardized Coefficient (Log-Odds)": 0.3927,
+      "Odds Ratio [exp(beta)]": 1.481,
+      "Feature Mean": 1.5727,
+      "Feature Std": 0.4947
+    },
+    {
+      "Feature": "CHEST_PAIN",
+      "Standardized Coefficient (Log-Odds)": 0.3218,
+      "Odds Ratio [exp(beta)]": 1.3796,
+      "Feature Mean": 1.5545,
+      "Feature Std": 0.4970
+    },
+    {
+      "Feature": "PEER_PRESSURE",
+      "Standardized Coefficient (Log-Odds)": 0.3105,
+      "Odds Ratio [exp(beta)]": 1.3641,
+      "Feature Mean": 1.5045,
+      "Feature Std": 0.4999
+    },
+    {
+      "Feature": "YELLOW_FINGERS",
+      "Standardized Coefficient (Log-Odds)": 0.3012,
+      "Odds Ratio [exp(beta)]": 1.3515,
+      "Feature Mean": 1.5682,
+      "Feature Std": 0.4953
+    },
+    {
+      "Feature": "FATIGUE",
+      "Standardized Coefficient (Log-Odds)": 0.2514,
+      "Odds Ratio [exp(beta)]": 1.2858,
+      "Feature Mean": 1.6727,
+      "Feature Std": 0.4692
+    },
+    {
+      "Feature": "ANXIETY",
+      "Standardized Coefficient (Log-Odds)": 0.2318,
+      "Odds Ratio [exp(beta)]": 1.2609,
+      "Feature Mean": 1.5000,
+      "Feature Std": 0.5000
+    },
+    {
+      "Feature": "CHRONIC_DISEASE",
+      "Standardized Coefficient (Log-Odds)": 0.1824,
+      "Odds Ratio [exp(beta)]": 1.2001,
+      "Feature Mean": 1.5091,
+      "Feature Std": 0.4999
+    },
+    {
+      "Feature": "AGE",
+      "Standardized Coefficient (Log-Odds)": 0.1512,
+      "Odds Ratio [exp(beta)]": 1.1632,
+      "Feature Mean": 62.9182,
+      "Feature Std": 8.2415
+    },
+    {
+      "Feature": "GENDER",
+      "Standardized Coefficient (Log-Odds)": 0.1124,
+      "Odds Ratio [exp(beta)]": 1.119,
+      "Feature Mean": 0.5227,
+      "Feature Std": 0.4995
+    },
+    {
+      "Feature": "SMOKING",
+      "Standardized Coefficient (Log-Odds)": 0.0841,
+      "Odds Ratio [exp(beta)]": 1.0877,
+      "Feature Mean": 1.5636,
+      "Feature Std": 0.4959
+    },
+    {
+      "Feature": "SHORTNESS_OF_BREATH",
+      "Standardized Coefficient (Log-Odds)": 0.0712,
+      "Odds Ratio [exp(beta)]": 1.0738,
+      "Feature Mean": 1.6364,
+      "Feature Std": 0.4810
+    }
+  ],
+  "intercept": 0.8142
+}

@@ -1,0 +1,133 @@
+# =============================================================================
+# LungSense — Lung Cancer Predictor
+# .gitignore — Production-Ready
+# =============================================================================
+
+# ─────────────────────────────────────────
+# NODE / FRONTEND (frontend-react/)
+# ─────────────────────────────────────────
+node_modules/
+frontend-react/node_modules/
+
+# Vite / build output
+dist/
+frontend-react/dist/
+.vite/
+frontend-react/.vite/
+
+# NPM debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Coverage output
+coverage/
+
+# ─────────────────────────────────────────
+# PYTHON / MACHINE LEARNING
+# ─────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Test cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments — DO NOT commit
+.venv/
+venv/
+env/
+.env/
+ENV/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# ─────────────────────────────────────────
+# ENVIRONMENT / SECRETS
+# ─────────────────────────────────────────
+# Environment variable files — NEVER commit secrets
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.*.local
+
+# Keep safe example templates (if present):
+# !.env.example
+
+# ─────────────────────────────────────────
+# IMPORTANT: DO NOT IGNORE THESE
+# ─────────────────────────────────────────
+# The following are REQUIRED for the application to run and must be committed:
+#   models/model_metadata.json         — frozen inference weights, means, stds
+#   reports/final_model_evaluation.json — model evaluation metrics
+#   data/raw/Code3_LC.csv              — source dataset
+#   tools/show_accuracy.ps1            — accuracy display utility (PROTECTED)
+#   src/utils/api.py                   — FastAPI backend
+#   src/models/predict.py              — ML inference engine
+#   requirements.txt                   — Python dependencies
+#   frontend-react/                    — React frontend source
+#   frontend/                          — Legacy HTML frontend (served by FastAPI)
+# DO NOT add broad rules like *.json, *.csv, *.ps1 that would hide these files.
+
+# ─────────────────────────────────────────
+# IDE / EDITOR
+# ─────────────────────────────────────────
+.idea/
+*.iml
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# VSCode — ignore workspace settings unless intentionally committed
+# Uncomment the next line only if your team does NOT share VSCode settings:
+# .vscode/
+
+# Swap / temp files
+*.swp
+*.swo
+*~
+.#*
+
+# ─────────────────────────────────────────
+# OPERATING SYSTEM
+# ─────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# ─────────────────────────────────────────
+# LOGS / TEMPORARY
+# ─────────────────────────────────────────
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ─────────────────────────────────────────
+# BUILD ARTIFACTS
+# ─────────────────────────────────────────
+# HTML frontend build (if ever generated into a separate build directory)
+# NOTE: frontend/ is kept tracked — it is the legacy HTML frontend served by FastAPI.
+# If you generate a separate compiled output, add it here explicitly.
+build/
+
+# ─────────────────────────────────────────
+# MISCELLANEOUS
+# ─────────────────────────────────────────
+*.cert
+*.key
